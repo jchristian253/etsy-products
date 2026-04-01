@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NEC Quick Reference Cheat Sheet — Electrician Edition</title>
+<style>
+  @page {
+    size: 8.5in 11in;
+    margin: 0;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --bg: #1a1d23;
+    --card: #22262e;
+    --card-border: #2e333d;
+    --accent: #e8751a;
+    --accent-light: #f59542;
+    --text: #e4e6ea;
+    --text-muted: #9ba1ad;
+    --text-dim: #6b7280;
+    --highlight: #2a2f3a;
+    --white: #ffffff;
+  }
+
+  body {
+    font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    width: 8.5in;
+    height: 11in;
+    margin: 0 auto;
+    padding: 0.3in 0.35in 0.25in;
+    display: flex;
+    flex-direction: column;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* ── HEADER ── */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2.5px solid var(--accent);
+    padding-bottom: 6px;
+    margin-bottom: 8px;
+  }
+  .header-left { display: flex; align-items: baseline; gap: 10px; }
+  .header h1 {
+    font-size: 15pt;
+    font-weight: 800;
+    color: var(--white);
+    letter-spacing: -0.3px;
+  }
+  .header h1 span { color: var(--accent); }
+  .header .subtitle {
+    font-size: 7.5pt;
+    color: var(--text-muted);
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+  }
+  .header .badge {
+    background: var(--accent);
+    color: var(--white);
+    font-size: 6.5pt;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 3px;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+  }
+
+  /* ── GRID ── */
+  .grid {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto auto;
+    gap: 7px;
+  }
+
+  /* ── CARD ── */
+  .card {
+    background: var(--card);
+    border: 1px solid var(--card-border);
+    border-radius: 5px;
+    padding: 7px 8px 6px;
+    overflow: hidden;
+  }
+  .card-header {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 5px;
+    padding-bottom: 4px;
+    border-bottom: 1px solid var(--card-border);
+  }
+  .card-icon {
+    width: 16px;
+    height: 16px;
+    background: var(--accent);
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 9px;
+    font-weight: 700;
+    color: var(--white);
+    flex-shrink: 0;
+  }
+  .card-title {
+    font-size: 7.8pt;
+    font-weight: 700;
+    color: var(--white);
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+  }
+  .card-ref {
+    font-size: 6pt;
+    color: var(--accent-light);
+    margin-left: auto;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  /* ── TABLES ── */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 6.8pt;
+  }
+  th {
+    background: var(--highlight);
+    color: var(--accent-light);
+    font-weight: 700;
+    font-size: 6pt;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 3px 4px;
+    text-align: left;
+    border-bottom: 1px solid var(--card-border);
+  }
+  td {
+    padding: 2.5px 4px;
+    border-bottom: 1px solid #2a2e36;
+    color: var(--text);
+  }
+  tr:last-child td { border-bottom: none; }
+  tr:nth-child(even) td { background: rgba(255,255,255,0.015); }
+  td:first-child { font-weight: 600; color: var(--white); }
+  .val-highlight { color: var(--accent-light); font-weight: 700; }
+
+  /* ── FORMULA CARD ── */
+  .formula-box {
+    background: var(--highlight);
+    border: 1px solid var(--card-border);
+    border-left: 3px solid var(--accent);
+    border-radius: 3px;
+    padding: 6px 8px;
+    margin: 4px 0;
+    text-align: center;
+  }
+  .formula {
+    font-family: 'Courier New', monospace;
+    font-size: 10pt;
+    font-weight: 700;
+    color: var(--accent-light);
+    letter-spacing: 0.5px;
+  }
+  .formula-note {
+    font-size: 6.3pt;
+    color: var(--text-muted);
+    margin-top: 3px;
+    line-height: 1.4;
+  }
+
+  /* ── LIST ── */
+  .loc-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px 10px;
+    font-size: 6.6pt;
+  }
+  .loc-item {
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+    padding: 1.8px 0;
+  }
+  .loc-dot {
+    width: 4px;
+    height: 4px;
+    background: var(--accent);
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+  .loc-label { color: var(--text); font-weight: 600; }
+  .loc-type { color: var(--text-muted); font-size: 6pt; }
+
+  /* ── ARTICLE LIST ── */
+  .article-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px 8px;
+    font-size: 6.6pt;
+  }
+  .article-item {
+    display: flex;
+    gap: 5px;
+    padding: 2px 0;
+    align-items: baseline;
+  }
+  .article-num {
+    color: var(--accent-light);
+    font-weight: 700;
+    font-family: 'Courier New', monospace;
+    font-size: 7pt;
+    min-width: 26px;
+  }
+  .article-desc { color: var(--text); }
+
+  /* ── WORKING SPACE ── */
+  .ws-note {
+    font-size: 6pt;
+    color: var(--text-muted);
+    margin-top: 3px;
+    line-height: 1.3;
+  }
+
+  /* ── SPANS ── */
+  .span-full { grid-column: 1 / -1; }
+
+  /* ── FOOTER ── */
+  .footer {
+    margin-top: 6px;
+    padding-top: 5px;
+    border-top: 1px solid var(--card-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 5.5pt;
+    color: var(--text-dim);
+  }
+  .footer-accent { color: var(--accent); font-weight: 600; }
+
+  /* ── CONDUIT TABLE COMPACT ── */
+  .conduit-table th, .conduit-table td {
+    text-align: center;
+    padding: 2px 2.5px;
+    font-size: 6.3pt;
+  }
+  .conduit-table td:first-child,
+  .conduit-table th:first-child {
+    text-align: left;
+    min-width: 42px;
+  }
+
+  /* ── BOX FILL ── */
+  .boxfill-note {
+    font-size: 6pt;
+    color: var(--text-muted);
+    margin-top: 3px;
+    line-height: 1.3;
+  }
+
+  /* ── PRINT ── */
+  @media print {
+    html, body {
+      width: 8.5in;
+      height: 11in;
+      margin: 0;
+      padding: 0.3in 0.35in 0.25in;
+    }
+    body { background: var(--bg) !important; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════ HEADER ═══════════ -->
+<div class="header">
+  <div class="header-left">
+    <h1><span>NEC</span> Quick Reference Cheat Sheet</h1>
+    <span class="subtitle">Electrician Edition</span>
+  </div>
+  <span class="badge">2020 NEC</span>
+</div>
+
+<!-- ═══════════ GRID ═══════════ -->
+<div class="grid">
+
+  <!-- ─── 1. WIRE SIZING & AMPACITY ─── -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon">W</div>
+      <span class="card-title">Wire Sizing &amp; Ampacity</span>
+      <span class="card-ref">Table 310.15(B)(16)</span>
+    </div>
+    <table>
+      <tr><th>AWG</th><th>Ampacity (Cu, 60°C)</th><th>Typical Use</th></tr>
+      <tr><td>14 AWG</td><td class="val-highlight">15A</td><td>Lighting circuits</td></tr>
+      <tr><td>12 AWG</td><td class="val-highlight">20A</td><td>General receptacles</td></tr>
+      <tr><td>10 AWG</td><td class="val-highlight">30A</td><td>Dryers, A/C units</td></tr>
+      <tr><td>8 AWG</td><td class="val-highlight">40A</td><td>Ranges, cooktops</td></tr>
+      <tr><td>6 AWG</td><td class="val-highlight">55A</td><td>Large appliances</td></tr>
+      <tr><td>4 AWG</td><td class="val-highlight">70A</td><td>Sub-panels, feeders</td></tr>
+      <tr><td>2 AWG</td><td class="val-highlight">95A</td><td>Sub-panels</td></tr>
+      <tr><td>1/0 AWG</td><td class="val-highlight">125A</td><td>Services / feeders</td></tr>
+      <tr><td>2/0 AWG</td><td class="val-highlight">145A</td><td>Services / feeders</td></tr>
+      <tr><td>3/0 AWG</td><td class="val-highlight">165A</td><td>Services / feeders</td></tr>
+      <tr><td>4/0 AWG</td><td class="val-highlight">195A</td><td>200A services</td></tr>
+    </table>
+  </div>
+
+  <!-- ─── 2. CONDUIT FILL ─── -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon">C</div>
+      <span class="card-title">Conduit Fill — Max THHN Wires</span>
+      <span class="card-ref">Ch.9, Table 1</span>
+    </div>
+    <table class="conduit-table">
+      <tr><th>AWG</th><th>1/2"</th><th>3/4"</th><th>1"</th><th>1-1/4"</th><th>1-1/2"</th><th>2"</th></tr>
+      <tr><td>14</td><td>13</td><td>24</td><td>39</td><td>69</td><td>94</td><td>154</td></tr>
+      <tr><td>12</td><td>10</td><td>18</td><td>29</td><td>51</td><td>70</td><td>115</td></tr>
+      <tr><td>10</td><td>6</td><td>11</td><td>18</td><td>32</td><td>44</td><td>73</td></tr>
+      <tr><td>8</td><td>3</td><td>6</td><td>10</td><td>18</td><td>25</td><td>41</td></tr>
+      <tr><td>6</td><td>2</td><td>4</td><td>7</td><td>12</td><td>17</td><td>28</td></tr>
+      <tr><td>4</td><td>1</td><td>3</td><td>4</td><td>8</td><td>11</td><td>18</td></tr>
+      <tr><td>2</td><td>1</td><td>1</td><td>3</td><td>6</td><td>8</td><td>13</td></tr>
+      <tr><td>1/0</td><td>1</td><td>1</td><td>2</td><td>4</td><td>5</td><td>9</td></tr>
+      <tr><td>2/0</td><td>—</td><td>1</td><td>1</td><td>3</td><td>4</td><td>7</td></tr>
+      <tr><td>3/0</td><td>—</td><td>1</td><td>1</td><td>3</td><td>4</td><td>6</td></tr>
+      <tr><td>4/0</td><td>—</td><td>1</td><td>1</td><td>2</td><td>3</td><td>5</td></tr>
+    </table>
+    <div class="ws-note">EMT conduit. 40% fill for 3+ wires (Chapter 9, Table 1)</div>
+  </div>
+
+  <!-- ─── 3. GFCI / AFCI REQUIREMENTS ─── -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon">G</div>
+      <span class="card-title">GFCI &amp; AFCI Requirements</span>
+      <span class="card-ref">210.8 / 210.12</span>
+    </div>
+    <div style="margin-bottom:4px;">
+      <div style="font-size:6.3pt;font-weight:700;color:var(--accent-light);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:3px;">GFCI Protection Required — 210.8(A)</div>
+      <div class="loc-grid">
+        <div class="loc-item"><div class="loc-dot"></div><div><span class="loc-label">Bathrooms</span> <span class="loc-type">— all receptacles</span></div></div>
+        <div class="loc-item"><div class="loc-dot"></div><div><span class="loc-label">Kitchens</span> <span class="loc-type">— countertop, within 6' of sink</span></div></div>
+        <div class="loc-item"><div class="loc-dot"></div><div><span class="loc-label">Garages</span> <span class="loc-type">— all receptacles</span></div></div>
+        <div class="loc-item"><div class="loc-dot"></div><div><span class="loc-label">Outdoors</span> <span class="loc-type">— all receptacles</span></div></div>
+        <div class="loc-item"><div class="loc-dot"></div><div><span class="loc-label">Crawl spaces</span> <span class="loc-type">— at/below grade</span></div></div>
+        <div class="loc-item"><div class="loc-dot"></div><div><span class="loc-label">Basements</span> <span class="loc-type">— unfinished areas</span></div></div>
+        <div class="loc-item"><div class="loc-dot"></div><div><span class="loc-label">Laundry</span> <span class="loc-type">— within 6' of sink</span></div></div>
+        <div class="loc-item"><div class="loc-dot"></div><div><span class="loc-label">Boathouses</span> <span class="loc-type">— all receptacles</span></div></div>
+      </div>
+    </div>
+    <div>
+      <div style="font-size:6.3pt;font-weight:700;color:var(--accent-light);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:3px;">AFCI Protection Required — 210.12(A)</div>
+      <div class="loc-grid">
+        <div class="loc-item"><div class="loc-dot"></div><div><span class="loc-label">Kitchens</span></div></div>
+        <div class="loc-item"><div class="loc-dot"></div><div><span class="loc-label">Family rooms</span></div></div>
+        <div class="loc-item"><div class="loc-dot"></div><div><span class="loc-label">Bedrooms</span></div></div>
+        <div class="loc-item"><div class="loc-dot"></div><div><span class="loc-label">Living rooms</span></div></div>
+        <div class="loc-item"><div class="loc-dot"></div><div><span class="loc-label">Dining rooms</span></div></div>
+        <div class="loc-item"><div class="loc-dot"></div><div><span class="loc-label">Sunrooms</span></div></div>
+        <div class="loc-item"><div class="loc-dot"></div><div><span class="loc-label">Closets</span></div></div>
+        <div class="loc-item"><div class="loc-dot"></div><div><span class="loc-label">Hallways / Laundry</span></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── 4. OVERCURRENT + 5. VOLTAGE DROP ─── -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon">O</div>
+      <span class="card-title">Overcurrent Protection</span>
+      <span class="card-ref">240.4(D)</span>
+    </div>
+    <table>
+      <tr><th>Conductor</th><th>Max OCP</th><th>Note</th></tr>
+      <tr><td>14 AWG Cu</td><td class="val-highlight">15A</td><td>Max breaker / fuse size</td></tr>
+      <tr><td>12 AWG Cu</td><td class="val-highlight">20A</td><td>Max breaker / fuse size</td></tr>
+      <tr><td>10 AWG Cu</td><td class="val-highlight">30A</td><td>Max breaker / fuse size</td></tr>
+    </table>
+    <div style="margin-top:8px;"></div>
+    <div class="card-header" style="margin-bottom:5px;">
+      <div class="card-icon" style="background:#c05e12;">V</div>
+      <span class="card-title">Voltage Drop Formula</span>
+      <span class="card-ref">Recommended Limits</span>
+    </div>
+    <div class="formula-box">
+      <div class="formula">VD = (2 &times; K &times; I &times; L) &divide; CM</div>
+      <div class="formula-note">
+        <strong style="color:var(--text);">K</strong> = 12.9 (copper) &nbsp;|&nbsp; <strong style="color:var(--text);">I</strong> = current (amps) &nbsp;|&nbsp; <strong style="color:var(--text);">L</strong> = one-way length (ft) &nbsp;|&nbsp; <strong style="color:var(--text);">CM</strong> = circular mils
+      </div>
+    </div>
+    <div style="display:flex;gap:10px;margin-top:4px;font-size:6.3pt;">
+      <div style="flex:1;background:var(--highlight);border-radius:3px;padding:4px 6px;text-align:center;">
+        <div style="color:var(--accent-light);font-weight:700;font-size:11pt;">3%</div>
+        <div style="color:var(--text-muted);">Max branch circuit</div>
+      </div>
+      <div style="flex:1;background:var(--highlight);border-radius:3px;padding:4px 6px;text-align:center;">
+        <div style="color:var(--accent-light);font-weight:700;font-size:11pt;">5%</div>
+        <div style="color:var(--text-muted);">Max total (feeder + branch)</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── 6. WORKING SPACE ─── -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon">S</div>
+      <span class="card-title">Working Space Clearances</span>
+      <span class="card-ref">110.26(A)</span>
+    </div>
+    <table>
+      <tr><th>Voltage to Ground</th><th>Cond. 1</th><th>Cond. 2</th><th>Cond. 3</th></tr>
+      <tr><td>0–150V</td><td class="val-highlight">3 ft</td><td class="val-highlight">3 ft</td><td class="val-highlight">3 ft</td></tr>
+      <tr><td>151–600V</td><td class="val-highlight">3 ft</td><td class="val-highlight">3.5 ft</td><td class="val-highlight">4 ft</td></tr>
+      <tr><td>601–2500V</td><td class="val-highlight">3 ft</td><td class="val-highlight">4 ft</td><td class="val-highlight">5 ft</td></tr>
+    </table>
+    <div class="ws-note">
+      <strong style="color:var(--text);">Conditions:</strong>
+      1 = Exposed live on one side, no live/grounded on other &nbsp;|&nbsp;
+      2 = Exposed live on one side, grounded on other &nbsp;|&nbsp;
+      3 = Exposed live on both sides<br>
+      <strong style="color:var(--text);">Min width:</strong> 30" or width of equipment (whichever greater) &nbsp;|&nbsp;
+      <strong style="color:var(--text);">Min height:</strong> 6.5 ft or height of equipment
+    </div>
+  </div>
+
+  <!-- ─── 7. BOX FILL ─── -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon">B</div>
+      <span class="card-title">Box Fill Calculations</span>
+      <span class="card-ref">314.16(B)</span>
+    </div>
+    <table>
+      <tr><th>AWG Size</th><th>Volume per Conductor</th></tr>
+      <tr><td>14 AWG</td><td class="val-highlight">2.00 in&sup3;</td></tr>
+      <tr><td>12 AWG</td><td class="val-highlight">2.25 in&sup3;</td></tr>
+      <tr><td>10 AWG</td><td class="val-highlight">2.50 in&sup3;</td></tr>
+      <tr><td>8 AWG</td><td class="val-highlight">3.00 in&sup3;</td></tr>
+      <tr><td>6 AWG</td><td class="val-highlight">5.00 in&sup3;</td></tr>
+    </table>
+    <div class="boxfill-note">
+      <strong style="color:var(--text);">Count rules:</strong>
+      Each conductor = 1 vol &nbsp;|&nbsp;
+      All grounds = 1 vol (largest) &nbsp;|&nbsp;
+      Each device/yoke = 2 vol (largest connected) &nbsp;|&nbsp;
+      All clamps = 1 vol (largest)
+    </div>
+  </div>
+
+  <!-- ─── 8. NEC ARTICLE REFERENCE ─── -->
+  <div class="card span-full">
+    <div class="card-header">
+      <div class="card-icon">N</div>
+      <span class="card-title">Common NEC Article Quick Reference</span>
+      <span class="card-ref">Key Code Sections</span>
+    </div>
+    <div class="article-grid">
+      <div class="article-item"><span class="article-num">Art 90</span><span class="article-desc">Introduction &amp; Scope of the NEC</span></div>
+      <div class="article-item"><span class="article-num">Art 100</span><span class="article-desc">Definitions — key terms used throughout</span></div>
+      <div class="article-item"><span class="article-num">Art 110</span><span class="article-desc">Requirements for Electrical Installations</span></div>
+      <div class="article-item"><span class="article-num">Art 200</span><span class="article-desc">Use &amp; Identification of Grounded Conductors</span></div>
+      <div class="article-item"><span class="article-num">Art 210</span><span class="article-desc">Branch Circuits — ratings, outlets, loads</span></div>
+      <div class="article-item"><span class="article-num">Art 220</span><span class="article-desc">Branch-Circuit, Feeder &amp; Service Load Calcs</span></div>
+      <div class="article-item"><span class="article-num">Art 230</span><span class="article-desc">Services — conductors, disconnects, metering</span></div>
+      <div class="article-item"><span class="article-num">Art 240</span><span class="article-desc">Overcurrent Protection — breakers &amp; fuses</span></div>
+      <div class="article-item"><span class="article-num">Art 250</span><span class="article-desc">Grounding &amp; Bonding — electrodes, conductors</span></div>
+      <div class="article-item"><span class="article-num">Art 300</span><span class="article-desc">General Wiring Methods &amp; Materials</span></div>
+      <div class="article-item"><span class="article-num">Art 310</span><span class="article-desc">Conductors — ampacity tables, sizing</span></div>
+      <div class="article-item"><span class="article-num">Art 314</span><span class="article-desc">Outlet, Device &amp; Junction Boxes</span></div>
+      <div class="article-item"><span class="article-num">Art 334</span><span class="article-desc">Nonmetallic-Sheathed Cable (NM / Romex)</span></div>
+      <div class="article-item"><span class="article-num">Art 348</span><span class="article-desc">Flexible Metal Conduit (FMC)</span></div>
+      <div class="article-item"><span class="article-num">Art 430</span><span class="article-desc">Motors — circuits, protection, controllers</span></div>
+      <div class="article-item"><span class="article-num">Art 680</span><span class="article-desc">Swimming Pools, Fountains &amp; Hot Tubs</span></div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<div class="footer">
+  <span>Reference guide based on the 2020 National Electrical Code (NFPA 70). Always verify with current adopted code in your jurisdiction.</span>
+  <span class="footer-accent">&#9889; NEC Quick Reference v1.0</span>
+</div>
+
+</body>
+</html>
