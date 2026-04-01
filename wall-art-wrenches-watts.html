@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WRENCHES & WATTS — WiredAndBuilt Wall Art</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Bebas+Neue&display=swap');
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html, body {
+    width: 100%;
+    height: 100%;
+    background: #111;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .art-frame {
+    width: 800px;
+    height: 1000px;
+    background: #1a1a1a;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Subtle grain */
+  .art-frame::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    opacity: 0.06;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+    background-size: 200px 200px;
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  /* Center divider line */
+  .center-line {
+    position: absolute;
+    top: 15%;
+    bottom: 15%;
+    left: 50%;
+    width: 1px;
+    background: linear-gradient(to bottom, transparent, #E8640A 30%, #E8640A 70%, transparent);
+    opacity: 0.4;
+    z-index: 1;
+  }
+
+  .content {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+    padding: 60px 50px;
+  }
+
+  /* Icons row */
+  .icons-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 80px;
+    margin-bottom: 50px;
+  }
+
+  .icon-wrench, .icon-bolt {
+    width: 70px;
+    height: 70px;
+    opacity: 0.8;
+  }
+
+  .icon-wrench svg, .icon-bolt svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .headline {
+    font-family: 'Bebas Neue', 'Oswald', sans-serif;
+    font-size: 84px;
+    color: #ffffff;
+    letter-spacing: 8px;
+    line-height: 1;
+    text-transform: uppercase;
+  }
+
+  .headline .amp {
+    color: #E8640A;
+    font-size: 72px;
+  }
+
+  .rule-line {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin: 35px 0;
+  }
+  .rule-line .line {
+    width: 80px;
+    height: 1px;
+    background: #444;
+  }
+  .rule-line .dot {
+    width: 6px;
+    height: 6px;
+    background: #E8640A;
+    transform: rotate(45deg);
+  }
+
+  .subtext {
+    font-family: 'Oswald', sans-serif;
+    font-size: 22px;
+    color: #888;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    font-weight: 400;
+  }
+
+  .subtext span {
+    color: #E8640A;
+    margin: 0 4px;
+  }
+
+  /* Corner brackets */
+  .bracket { position: absolute; z-index: 3; }
+  .bracket::before, .bracket::after {
+    content: '';
+    position: absolute;
+    background: #E8640A;
+    opacity: 0.3;
+  }
+  .bracket-tl { top: 35px; left: 35px; }
+  .bracket-tl::before { width: 35px; height: 1px; top: 0; left: 0; }
+  .bracket-tl::after { width: 1px; height: 35px; top: 0; left: 0; }
+
+  .bracket-br { bottom: 35px; right: 35px; }
+  .bracket-br::before { width: 35px; height: 1px; bottom: 0; right: 0; }
+  .bracket-br::after { width: 1px; height: 35px; bottom: 0; right: 0; }
+
+  @media print {
+    html, body {
+      width: 8in;
+      height: 10in;
+      margin: 0;
+      padding: 0;
+      background: #1a1a1a;
+    }
+    .art-frame {
+      width: 8in;
+      height: 10in;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    @page {
+      size: 8in 10in;
+      margin: 0;
+    }
+  }
+</style>
+</head>
+<body>
+<div class="art-frame">
+  <div class="bracket bracket-tl"></div>
+  <div class="center-line"></div>
+  <div class="content">
+    <div class="icons-row">
+      <div class="icon-wrench">
+        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M48 8a16 16 0 00-15 21.5L13.5 49a5 5 0 107 7L40.5 36.5A16 16 0 0048 8zm0 8a8 8 0 11-5.66 2.34L48 24l5.66-5.66A8 8 0 0148 16z" fill="#E8640A" opacity="0.7"/>
+        </svg>
+      </div>
+      <div class="icon-bolt">
+        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <polygon points="38,4 18,36 30,36 26,60 46,28 34,28" fill="#E8640A" opacity="0.7"/>
+        </svg>
+      </div>
+    </div>
+    <div class="headline">WRENCHES <span class="amp">&</span> WATTS</div>
+    <div class="rule-line">
+      <div class="line"></div>
+      <div class="dot"></div>
+      <div class="line"></div>
+    </div>
+    <div class="subtext">Trade life<span>.</span>Built life<span>.</span>Real life<span>.</span></div>
+  </div>
+  <div class="bracket bracket-br"></div>
+</div>
+</body>
+</html>

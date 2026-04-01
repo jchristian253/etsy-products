@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>THE ROAD — WiredAndBuilt Wall Art</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Bebas+Neue&display=swap');
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html, body {
+    width: 100%;
+    height: 100%;
+    background: #111;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .art-frame {
+    width: 800px;
+    height: 1000px;
+    background: #0d0d0d;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+  }
+
+  /* Mountain silhouette */
+  .mountains {
+    position: absolute;
+    bottom: 280px;
+    left: 0;
+    right: 0;
+    height: 400px;
+    z-index: 1;
+  }
+  .mountains svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Orange sunrise glow */
+  .sunrise-glow {
+    position: absolute;
+    bottom: 300px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    height: 250px;
+    background: radial-gradient(ellipse at center bottom, rgba(232,100,10,0.2) 0%, rgba(232,100,10,0.08) 30%, transparent 65%);
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  /* Horizon line */
+  .horizon {
+    position: absolute;
+    bottom: 300px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(to right, transparent 5%, #E8640A 30%, #E8640A 70%, transparent 95%);
+    opacity: 0.4;
+    z-index: 2;
+  }
+
+  /* Dark sky gradient */
+  .sky {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 300px;
+    background: linear-gradient(to bottom, #0a0a0a 0%, #0d0d0d 60%, #151210 100%);
+    z-index: 0;
+  }
+
+  /* Stars */
+  .stars {
+    position: absolute;
+    top: 40px;
+    left: 0;
+    right: 0;
+    height: 300px;
+    z-index: 1;
+  }
+  .star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: #fff;
+    border-radius: 50%;
+    opacity: 0.3;
+  }
+  .star:nth-child(1) { top: 30px; left: 15%; opacity: 0.2; }
+  .star:nth-child(2) { top: 60px; left: 35%; opacity: 0.4; }
+  .star:nth-child(3) { top: 20px; left: 55%; opacity: 0.15; }
+  .star:nth-child(4) { top: 80px; left: 72%; opacity: 0.3; }
+  .star:nth-child(5) { top: 45px; left: 85%; opacity: 0.2; }
+  .star:nth-child(6) { top: 110px; left: 25%; opacity: 0.15; }
+  .star:nth-child(7) { top: 90px; left: 48%; opacity: 0.25; }
+  .star:nth-child(8) { top: 140px; left: 65%; opacity: 0.2; }
+  .star:nth-child(9) { top: 50px; left: 8%; opacity: 0.3; }
+  .star:nth-child(10) { top: 130px; left: 90%; opacity: 0.15; }
+
+  .content {
+    position: relative;
+    z-index: 5;
+    padding: 0 60px 80px 60px;
+    width: 100%;
+  }
+
+  .headline {
+    font-family: 'Bebas Neue', 'Oswald', sans-serif;
+    font-size: 62px;
+    color: #ffffff;
+    letter-spacing: 4px;
+    line-height: 1.15;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .headline .orange {
+    color: #E8640A;
+  }
+
+  .accent-bar {
+    width: 60px;
+    height: 3px;
+    background: #E8640A;
+    margin: 25px 0;
+  }
+
+  .subtext {
+    font-family: 'Oswald', sans-serif;
+    font-size: 16px;
+    color: #777;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    line-height: 1.8;
+    font-weight: 400;
+  }
+
+  /* Top right compass-style mark */
+  .compass {
+    position: absolute;
+    top: 45px;
+    right: 45px;
+    z-index: 5;
+    opacity: 0.25;
+  }
+  .compass svg {
+    width: 40px;
+    height: 40px;
+  }
+
+  @media print {
+    html, body {
+      width: 8in;
+      height: 10in;
+      margin: 0;
+      padding: 0;
+      background: #0d0d0d;
+    }
+    .art-frame {
+      width: 8in;
+      height: 10in;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    @page {
+      size: 8in 10in;
+      margin: 0;
+    }
+  }
+</style>
+</head>
+<body>
+<div class="art-frame">
+  <div class="sky"></div>
+  <div class="stars">
+    <div class="star"></div><div class="star"></div><div class="star"></div>
+    <div class="star"></div><div class="star"></div><div class="star"></div>
+    <div class="star"></div><div class="star"></div><div class="star"></div>
+    <div class="star"></div>
+  </div>
+  <div class="sunrise-glow"></div>
+  <div class="mountains">
+    <svg viewBox="0 0 800 400" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Far mountains -->
+      <polygon points="0,400 0,280 80,220 160,260 240,180 320,230 400,150 480,210 560,170 640,240 720,190 800,250 800,400" fill="#141414"/>
+      <!-- Near mountains -->
+      <polygon points="0,400 0,320 100,260 200,310 280,240 380,290 460,220 540,270 620,230 700,280 800,300 800,400" fill="#111111"/>
+      <!-- Foreground ridge -->
+      <polygon points="0,400 0,360 120,340 250,355 380,335 500,350 620,330 750,345 800,355 800,400" fill="#0d0d0d"/>
+    </svg>
+  </div>
+  <div class="horizon"></div>
+
+  <div class="compass">
+    <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="20" cy="20" r="18" stroke="#E8640A" stroke-width="1"/>
+      <line x1="20" y1="4" x2="20" y2="10" stroke="#E8640A" stroke-width="1"/>
+      <line x1="20" y1="30" x2="20" y2="36" stroke="#E8640A" stroke-width="1"/>
+      <line x1="4" y1="20" x2="10" y2="20" stroke="#E8640A" stroke-width="1"/>
+      <line x1="30" y1="20" x2="36" y2="20" stroke="#E8640A" stroke-width="1"/>
+      <polygon points="20,8 17,20 20,18 23,20" fill="#E8640A"/>
+    </svg>
+  </div>
+
+  <div class="content">
+    <div class="headline">
+      THE <span class="orange">ROAD</span> DOESN'T<br>
+      CARE HOW TIRED<br>
+      YOU ARE
+    </div>
+    <div class="accent-bar"></div>
+    <div class="subtext">
+      Build the rig. Drive the trail. Live the life.
+    </div>
+  </div>
+</div>
+</body>
+</html>
