@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Voltage Mindset — Pop Art</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;700;900&display=swap');
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    width: 800px; height: 1000px;
+    background: #FFE000;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Inter', sans-serif;
+    overflow: hidden;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    position: relative;
+  }
+
+  /* Halftone dot pattern */
+  body::before {
+    content: '';
+    position: fixed; inset: 0;
+    background-image: radial-gradient(circle, rgba(0,0,0,0.06) 1px, transparent 1px);
+    background-size: 12px 12px;
+    z-index: 0;
+  }
+
+  .poster {
+    position: relative; z-index: 1;
+    width: 700px; height: 900px;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    text-align: center;
+  }
+
+  /* Large background lightning bolt */
+  .bg-bolt {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+    opacity: 0.08;
+  }
+
+  .top-label {
+    font-family: 'Inter', sans-serif;
+    font-weight: 900;
+    font-size: 14px;
+    letter-spacing: 8px;
+    text-transform: uppercase;
+    color: #0D0D0D;
+    background: #0D0D0D;
+    color: #FFE000;
+    padding: 8px 30px;
+    margin-bottom: 40px;
+    position: relative; z-index: 2;
+  }
+
+  .bolt-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    margin-bottom: 20px;
+    position: relative; z-index: 2;
+  }
+
+  h1 {
+    font-family: 'Anton', sans-serif;
+    font-size: 130px;
+    color: #0D0D0D;
+    line-height: 0.9;
+    text-transform: uppercase;
+    position: relative; z-index: 2;
+    /* Pop art shadow */
+    text-shadow: 4px 4px 0 #FF3300, 8px 8px 0 rgba(0,0,0,0.1);
+  }
+
+  .red-block {
+    display: inline-block;
+    background: #FF3300;
+    color: #FFE000;
+    padding: 4px 16px;
+    font-family: 'Anton', sans-serif;
+    font-size: 130px;
+    line-height: 0.9;
+    text-transform: uppercase;
+    position: relative; z-index: 2;
+    box-shadow: 6px 6px 0 rgba(0,0,0,0.15);
+  }
+
+  .divider-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin: 28px 0;
+    position: relative; z-index: 2;
+  }
+
+  .divider-row .zig {
+    width: 50px; height: 3px;
+    background: #0D0D0D;
+  }
+
+  .tagline {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    color: #0D0D0D;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    line-height: 2;
+    position: relative; z-index: 2;
+  }
+
+  .bottom-badge {
+    position: absolute;
+    bottom: 30px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    z-index: 2;
+  }
+
+  .bottom-badge .stripe {
+    width: 24px; height: 3px;
+    background: #FF3300;
+  }
+
+  .bottom-badge span {
+    font-family: 'Inter', sans-serif;
+    font-weight: 900;
+    font-size: 11px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: rgba(13,13,13,0.4);
+  }
+
+  /* Corner accents */
+  .corner {
+    position: absolute;
+    width: 40px; height: 40px;
+    z-index: 2;
+  }
+  .corner.tl { top: 20px; left: 20px; border-top: 4px solid #0D0D0D; border-left: 4px solid #0D0D0D; }
+  .corner.tr { top: 20px; right: 20px; border-top: 4px solid #0D0D0D; border-right: 4px solid #0D0D0D; }
+  .corner.bl { bottom: 20px; left: 20px; border-bottom: 4px solid #FF3300; border-left: 4px solid #FF3300; }
+  .corner.br { bottom: 20px; right: 20px; border-bottom: 4px solid #FF3300; border-right: 4px solid #FF3300; }
+
+  @media print {
+    body { width: 8in; height: 10in; }
+  }
+</style>
+</head>
+<body>
+
+<div class="poster">
+  <!-- Background large bolt -->
+  <svg class="bg-bolt" width="500" height="700" viewBox="0 0 500 700" xmlns="http://www.w3.org/2000/svg">
+    <polygon points="300,0 80,350 220,350 160,700 440,280 280,280" fill="#0D0D0D"/>
+  </svg>
+
+  <div class="corner tl"></div>
+  <div class="corner tr"></div>
+  <div class="corner bl"></div>
+  <div class="corner br"></div>
+
+  <div class="top-label">⚡ High Voltage ⚡</div>
+
+  <div class="bolt-row">
+    <!-- Left bolt -->
+    <svg width="36" height="52" viewBox="0 0 36 52" xmlns="http://www.w3.org/2000/svg">
+      <polygon points="22,0 4,26 16,26 10,52 32,22 18,22" fill="#FF3300"/>
+    </svg>
+
+    <h1>VOLTAGE</h1>
+
+    <!-- Right bolt -->
+    <svg width="36" height="52" viewBox="0 0 36 52" xmlns="http://www.w3.org/2000/svg">
+      <polygon points="22,0 4,26 16,26 10,52 32,22 18,22" fill="#FF3300"/>
+    </svg>
+  </div>
+
+  <div class="red-block">MINDSET</div>
+
+  <div class="divider-row">
+    <div class="zig"></div>
+    <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+      <polygon points="10,0 4,10 8,10 6,20 16,8 11,8" fill="#0D0D0D"/>
+    </svg>
+    <div class="zig"></div>
+  </div>
+
+  <div class="tagline">
+    Stay Wired.<br/>
+    Stay Dangerous.<br/>
+    Stay Lit.
+  </div>
+
+  <div class="bottom-badge">
+    <div class="stripe"></div>
+    <span>Wired &amp; Built</span>
+    <div class="stripe"></div>
+  </div>
+</div>
+
+</body>
+</html>
