@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HIGH VOLTAGE — WiredAndBuilt Wall Art</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Bebas+Neue&family=Share+Tech+Mono&display=swap');
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html, body {
+    width: 100%;
+    height: 100%;
+    background: #111;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .art-frame {
+    width: 800px;
+    height: 1000px;
+    background: #0d0d0d;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .art-frame::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    opacity: 0.06;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+    background-size: 200px 200px;
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  /* Lightning bolt SVG as background accent */
+  .bolt-bg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.04;
+    z-index: 1;
+  }
+  .bolt-bg svg {
+    width: 400px;
+    height: 600px;
+  }
+
+  .content {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+    padding: 60px 50px;
+  }
+
+  /* Voltage readout */
+  .readout {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 22px;
+    color: #E8640A;
+    letter-spacing: 6px;
+    margin-bottom: 40px;
+    opacity: 0.7;
+  }
+
+  .headline {
+    font-family: 'Bebas Neue', 'Oswald', sans-serif;
+    font-size: 92px;
+    color: #ffffff;
+    letter-spacing: 10px;
+    line-height: 1.05;
+    text-transform: uppercase;
+  }
+
+  .headline .accent {
+    color: #E8640A;
+  }
+
+  .bolt-icon {
+    margin: 30px auto;
+    opacity: 0.5;
+  }
+  .bolt-icon svg {
+    width: 30px;
+    height: 50px;
+  }
+
+  .subtext {
+    font-family: 'Oswald', sans-serif;
+    font-size: 16px;
+    color: #777;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    line-height: 1.8;
+    font-weight: 400;
+  }
+
+  /* Circuit trace accents */
+  .trace-left {
+    position: absolute;
+    left: 40px;
+    top: 35%;
+    width: 2px;
+    height: 120px;
+    background: #E8640A;
+    opacity: 0.15;
+    z-index: 3;
+  }
+  .trace-left::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 25px;
+    height: 2px;
+    background: #E8640A;
+  }
+
+  .trace-right {
+    position: absolute;
+    right: 40px;
+    bottom: 35%;
+    width: 2px;
+    height: 120px;
+    background: #E8640A;
+    opacity: 0.15;
+    z-index: 3;
+  }
+  .trace-right::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 25px;
+    height: 2px;
+    background: #E8640A;
+  }
+
+  .side-text {
+    position: absolute;
+    right: 38px;
+    top: 50%;
+    transform: translateY(-50%) rotate(90deg);
+    font-family: 'Oswald', sans-serif;
+    font-size: 10px;
+    letter-spacing: 4px;
+    color: #333;
+    text-transform: uppercase;
+    z-index: 3;
+  }
+
+  @media print {
+    html, body {
+      width: 8in;
+      height: 10in;
+      margin: 0;
+      padding: 0;
+      background: #0d0d0d;
+    }
+    .art-frame {
+      width: 8in;
+      height: 10in;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    @page {
+      size: 8in 10in;
+      margin: 0;
+    }
+  }
+</style>
+</head>
+<body>
+<div class="art-frame">
+  <div class="bolt-bg">
+    <svg viewBox="0 0 100 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <polygon points="55,0 20,90 45,90 35,160 80,65 52,65 65,0" fill="#E8640A"/>
+    </svg>
+  </div>
+  <div class="trace-left"></div>
+  <div class="trace-right"></div>
+  <div class="content">
+    <div class="readout">/// 240V — HARDWIRED ///</div>
+    <div class="headline">HIGH<br><span class="accent">VOLTAGE</span><br>MINDSET</div>
+    <div class="bolt-icon">
+      <svg viewBox="0 0 30 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="17,0 5,28 14,28 10,50 25,20 15,20 20,0" fill="#E8640A"/>
+      </svg>
+    </div>
+    <div class="subtext">Wired different.<br>Built to carry the load.</div>
+  </div>
+  <div class="side-text">WiredAndBuilt</div>
+</div>
+</body>
+</html>
